@@ -7,7 +7,7 @@ class NotesListView extends StatelessWidget {
     super.key,
   });
   final List<Color> colors = const [
-    const Color(0xffFFCC80),
+    Color(0xffFFCC80),
     Color(0xffFFCCb0),
     Color(0xffFFCCe0),
     Color(0xffFFCC80),
@@ -20,6 +20,7 @@ class NotesListView extends StatelessWidget {
     Color(0xffFFCCb0),
     Color(0xffFFCCe0),
   ];
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -27,7 +28,7 @@ class NotesListView extends StatelessWidget {
         padding: EdgeInsets.zero,
         itemCount: colors.length,
         itemBuilder: (context, index) => Padding(
-          padding: EdgeInsets.symmetric(vertical: 4.0),
+          padding: const EdgeInsets.symmetric(vertical: 4.0),
           child: NoteItem(
             color: colors[index],
           ),
