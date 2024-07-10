@@ -15,13 +15,13 @@ class ChatBubble extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16,),
+        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16,),
         /*height: 65,
         width: 150,
         alignment: Alignment.centerLeft,
         padding: EdgeInsets.only(left: 16,),*/
-        padding: EdgeInsets.only(left: 16,right: 32,bottom: 32,top: 32,),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.only(left: 16,right: 32,bottom: 32,top: 32,),
+        decoration: const BoxDecoration(
           color: kPrimaryColor,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(32),
@@ -31,7 +31,7 @@ class ChatBubble extends StatelessWidget {
         ),
         child: Text(
           message.message,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
         ),
@@ -52,13 +52,13 @@ class ChatBubbleForFriend extends StatelessWidget {
     return Align(
       alignment: Alignment.centerRight,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16,),
+        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16,),
         /*height: 65,
         width: 150,
         alignment: Alignment.centerLeft,
         padding: EdgeInsets.only(left: 16,),*/
-        padding: EdgeInsets.only(left: 16,right: 32,bottom: 32,top: 32,),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.only(left: 16,right: 32,bottom: 32,top: 32,),
+        decoration: const BoxDecoration(
           color: Color(0xff006D84),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(32),
@@ -68,7 +68,7 @@ class ChatBubbleForFriend extends StatelessWidget {
         ),
         child: Text(
           message.message,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
         ),

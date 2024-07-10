@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_udemy_tharwat2/store_app/models/product_model.dart';
 import 'package:flutter_udemy_tharwat2/store_app/services/get_all_product_service.dart';
@@ -19,14 +18,14 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(
+            icon: const Icon(
               FontAwesomeIcons.cartPlus,
               color: Colors.black,
             ),
           ),
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'New trend',
           style: TextStyle(
             color: Colors.black,
@@ -47,7 +46,7 @@ class HomePage extends StatelessWidget {
               return GridView.builder(
                 itemCount: products.length,
                 clipBehavior: Clip.none,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 1.5,
                   crossAxisSpacing: 10,
@@ -60,7 +59,7 @@ class HomePage extends StatelessWidget {
                 },
               );
             } else {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }

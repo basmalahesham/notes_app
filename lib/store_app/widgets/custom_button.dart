@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
         ),
         width: double.infinity,
         height: 60,
-        child: Center(child: Text(text,style: TextStyle(color: Colors.white),)),
+        child: Center(child: Text(text,style: const TextStyle(color: Colors.white),)),
       ),
     );
   }

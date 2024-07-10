@@ -24,7 +24,7 @@ class CustomCard extends StatelessWidget {
                     blurRadius: 40,
                     color: Colors.grey.withOpacity(0.2),
                     spreadRadius: 0,
-                    offset: Offset(10, 10))
+                    offset: const Offset(10, 10))
               ],
             ),
             child: Card(
@@ -40,12 +40,12 @@ class CustomCard extends StatelessWidget {
                   children: [
                     Text(
                       product.title.substring(0,6),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.grey,
                         fontSize: 16,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 3,
                     ),
                     Row(
@@ -53,11 +53,11 @@ class CustomCard extends StatelessWidget {
                       children: [
                         Text(
                           r'$' '${product.price.toString()}',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 16,
                           ),
                         ),
-                        Icon(
+                        const Icon(
                           Icons.favorite,
                           color: Colors.red,
                         )

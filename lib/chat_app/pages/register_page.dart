@@ -9,7 +9,7 @@ import '../widgets(components)/custom_button.dart';
 import '../widgets(components)/custom_text_field.dart';
 
 class RegisterPage extends StatefulWidget {
-  RegisterPage({super.key});
+  const RegisterPage({super.key});
 
   static String id = "registerPage";
 
@@ -45,10 +45,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   kLogo,
                   height: 100,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'Scholar Chat',
                       style: TextStyle(
                           fontSize: 32,

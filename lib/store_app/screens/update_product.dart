@@ -6,7 +6,7 @@ import 'package:flutter_udemy_tharwat2/store_app/widgets/custom_text_field.dart'
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class UpdateProductPage extends StatefulWidget {
-  UpdateProductPage({super.key});
+  const UpdateProductPage({super.key});
 
   static String id = "update product";
 
@@ -25,7 +25,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
       inAsyncCall: isLoading,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             'Update Product',
             style: TextStyle(color: Colors.black),
           ),
@@ -38,7 +38,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 ),
                 CustomTextField(
@@ -47,7 +47,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                   },
                   hintText: 'Product Name',
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 CustomTextField(
@@ -56,7 +56,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                   },
                   hintText: 'description',
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 CustomTextField(
@@ -66,7 +66,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                   hintText: 'price',
                   inputType: TextInputType.number,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 CustomTextField(
@@ -75,7 +75,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                   },
                   hintText: 'image',
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 CustomButton(

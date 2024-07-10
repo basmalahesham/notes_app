@@ -10,7 +10,7 @@ import '../helper/show_snach_bar.dart';
 import 'chat_page.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
+  const LoginPage({super.key});
 
   static String id = "loginPage";
 
@@ -41,10 +41,10 @@ class _LoginPageState extends State<LoginPage> {
                   height: 75,
                 ),
                 Image.asset(kLogo,height: 100,),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'Scholar Chat',
                       style: TextStyle(
                           fontSize: 32, color: Colors.white, fontFamily: 'pacifico'),

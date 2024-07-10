@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -41,7 +40,7 @@ class ChatPage extends StatelessWidget {
                     kLogo,
                     height: 50,
                   ),
-                  Text('Scholar chat'),
+                  const Text('Scholar chat'),
                 ],
               ),
               centerTitle: true,
@@ -73,7 +72,7 @@ class ChatPage extends StatelessWidget {
                       _controller.animateTo(
                         0,
                         //_controller.position.maxScrollExtent,
-                        duration: Duration(milliseconds: 500),
+                        duration: const Duration(milliseconds: 500),
                         //curve: Curves.fastOutSlowIn,
                         curve: Curves.easeIn,
                       );
@@ -82,7 +81,7 @@ class ChatPage extends StatelessWidget {
                     },
                     decoration: InputDecoration(
                       hintText: 'Send Message',
-                      suffixIcon: Icon(
+                      suffixIcon: const Icon(
                         Icons.send,
                         color: kPrimaryColor,
                       ),
@@ -91,7 +90,7 @@ class ChatPage extends StatelessWidget {
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(color: kPrimaryColor),
+                        borderSide: const BorderSide(color: kPrimaryColor),
                       ),
                     ),
                   ),
@@ -100,7 +99,7 @@ class ChatPage extends StatelessWidget {
             ),
           );
         } else {
-          return Text('Loading...');
+          return const Text('Loading...');
         }
       },
     );
