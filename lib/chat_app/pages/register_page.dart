@@ -6,7 +6,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../constants.dart';
 import '../helper/show_snach_bar.dart';
 import '../widgets(components)/custom_button.dart';
-import '../widgets(components)/custom_text_field.dart';
+import '../widgets(components)/custom_text_form_field.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
