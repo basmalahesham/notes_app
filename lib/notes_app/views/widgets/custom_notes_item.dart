@@ -3,9 +3,9 @@ import 'package:flutter_udemy_tharwat2/notes_app/views/edit_note_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key, required this.color});
+  const NoteItem({super.key,});
 
-  final Color color;
+  //final Color color;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -24,7 +24,8 @@ class NoteItem extends StatelessWidget {
           left: 16,
         ),
         decoration: BoxDecoration(
-          color: color,
+          //color: color,
+          color: const Color(0xffFFCC80),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
