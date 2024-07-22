@@ -20,7 +20,8 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
 
   @override
   Widget build(BuildContext context) {
-    ProductModel product = ModalRoute.of(context)!.settings.arguments as ProductModel;
+    ProductModel product =
+        ModalRoute.of(context)!.settings.arguments as ProductModel;
     return ModalProgressHUD(
       inAsyncCall: isLoading,
       child: Scaffold(
@@ -37,6 +38,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
           padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(
                   height: 100,
@@ -85,12 +87,13 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                     setState(() {});
                     try {
                       await updateProduct(product);
+                      Navigator.pop(context);
                     } catch (e) {
                       print(e.toString());
                     }
                     isLoading = false;
                     setState(() {});
-                   },
+                  },
                 ),
               ],
             ),
