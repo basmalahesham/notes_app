@@ -6,6 +6,7 @@ import 'package:flutter_udemy_tharwat2/notes_app/views/widgets/custom_text_field
 import 'package:intl/intl.dart';
 
 import '../../cubits/add_note_cubit/add_notes_cubit.dart';
+import 'colors_list_view.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({
@@ -43,6 +44,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hint: 'Content',
             maxLines: 5,
           ),
+          const ColorsListView(),
           const SizedBox(
             height: 32,
           ),
@@ -54,7 +56,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     var currentDate = DateTime.now();
-                    var formattedCurrentDate = DateFormat.yMEd().format(currentDate);
+                    var formattedCurrentDate =
+                        DateFormat.yMEd().format(currentDate);
                     //var formattedCurrentDate = DateFormat('dd-mm-yyyy').format(currentDate);
                     var noteModel = NoteModel(
                       title: title!,
