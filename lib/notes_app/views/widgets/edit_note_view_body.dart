@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_udemy_tharwat2/notes_app/models/note_model.dart';
 import 'package:flutter_udemy_tharwat2/notes_app/views/widgets/custom_text_field.dart';
+import 'package:flutter_udemy_tharwat2/notes_app/views/widgets/edit_notes_color_list.dart';
 
 import '../../cubits/notes_cubit/notes_cubit.dart';
 import 'custom_app_bar.dart';
@@ -58,8 +59,15 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             },
             maxLines: 5,
           ),
+          const SizedBox(
+            height: 16,
+          ),
+          EditNotesColorList(
+            note: widget.note,
+          ),
         ],
       ),
     );
   }
 }
+
