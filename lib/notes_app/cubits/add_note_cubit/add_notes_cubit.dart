@@ -6,17 +6,19 @@ import 'package:hive_flutter/adapters.dart';
 
 part 'add_notes_state.dart';
 
-
-class AddNotesCubit extends Cubit<AddNotesState>{
+class AddNotesCubit extends Cubit<AddNotesState> {
   AddNotesCubit() : super(AddNotesInitial());
 
-  addNote(NoteModel note) async{
+  Color color = const Color(0xffEF7C8E);
+
+  addNote(NoteModel note) async {
+    note.color = color.value;
     emit(AddNotesLoading());
     try {
       var notesBox = Hive.box<NoteModel>(kNotesBox);
-         await  notesBox.add(note);
+      await notesBox.add(note);
       emit(AddNotesSuccess());
-    }  catch (e) {
+    } catch (e) {
       emit(AddNotesFailure(e.toString()));
     }
   }
