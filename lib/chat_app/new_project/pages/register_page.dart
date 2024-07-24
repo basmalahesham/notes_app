@@ -57,9 +57,10 @@ class RegisterPage extends StatelessWidget {
                         Text(
                           'Scholar Chat',
                           style: TextStyle(
-                              fontSize: 32,
-                              color: Colors.white,
-                              fontFamily: 'pacifico'),
+                            fontSize: 32,
+                            color: Colors.white,
+                            fontFamily: 'pacifico',
+                          ),
                         ),
                       ],
                     ),
@@ -102,6 +103,8 @@ class RegisterPage extends StatelessWidget {
                     CustomButton(
                       onTap: () async {
                         if (formKey.currentState!.validate()) {
+                          BlocProvider.of<RegisterCubit>(context)
+                              .registerUser(email: email!, password: password!);
                         } else {}
                       },
                       text: 'REGISTER',
