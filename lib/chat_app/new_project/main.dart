@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/chat_page.dart';
+import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/cubits/login_cubit/login_cubit.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/login_page.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/register_page.dart';
 
@@ -19,16 +21,17 @@ class ScholarChat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {
-        // 'LoginPage': (context) => LoginPage(),
-        // 'RegisterPage' : (context) => RegisterPage(),
-        LoginPage.id: (context) => const LoginPage(),
-        RegisterPage.id: (context) => const RegisterPage(),
-        ChatPage.id: (context) => ChatPage(),
-      },
-      debugShowCheckedModeBanner: false,
-      initialRoute: LoginPage.id,
+    return BlocProvider(
+      create: (context) => LoginCubit(),
+      child: MaterialApp(
+        routes: {
+          LoginPage.id: (context) => const LoginPage(),
+          RegisterPage.id: (context) => const RegisterPage(),
+          ChatPage.id: (context) => ChatPage(),
+        },
+        debugShowCheckedModeBanner: false,
+        initialRoute: LoginPage.id,
+      ),
     );
   }
 }
