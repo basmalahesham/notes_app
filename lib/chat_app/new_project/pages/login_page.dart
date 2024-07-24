@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/cubits/chat_cubit/chat_cubit.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/cubits/login_cubit/login_cubit.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/old_project/pages/register_page.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/old_project/widgets(components)/custom_text_form_field.dart';
@@ -23,7 +24,8 @@ class LoginPage extends StatelessWidget {
         if (state is LoginLoading) {
           isLoading = true;
         } else if (state is LoginSuccess) {
-          Navigator.pushNamed(context, ChatPage.id);
+          BlocProvider.of<ChatCubit>(context).getMessages();
+          Navigator.pushNamed(context, ChatPage.id, arguments: email);
           isLoading = false;
         } else if (state is LoginFailure) {
           showSnackBar(context, state.errMessage);

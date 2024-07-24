@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/constants.dart';
-import 'package:flutter_udemy_tharwat2/chat_app/new_project/models/message.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/cubits/chat_cubit/chat_cubit.dart';
 
 import '../widgets(components)/chat_bubble.dart';
@@ -10,7 +9,7 @@ class ChatPage extends StatelessWidget {
   ChatPage({super.key});
 
   static String id = "chatPage";
-  List<Message> messagesList = [];
+  //List<Message> messagesList = [];
 
   TextEditingController controller = TextEditingController();
 
@@ -18,7 +17,7 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var email = ModalRoute.of(context)!.settings.arguments;
+    var email = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -38,13 +37,10 @@ class ChatPage extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: BlocConsumer<ChatCubit, ChatState>(
-              listener: (context, state) {
-                if (state is ChatSuccess) {
-                  messagesList = state.messagesList;
-                }
-              },
+            child: BlocBuilder<ChatCubit, ChatState>(
               builder: (context, state) {
+                var messagesList =
+                    BlocProvider.of<ChatCubit>(context).messagesList;
                 return ListView.builder(
                   reverse: true,
                   controller: _controller,
@@ -65,6 +61,8 @@ class ChatPage extends StatelessWidget {
             child: TextField(
               controller: controller,
               onSubmitted: (data) {
+                BlocProvider.of<ChatCubit>(context)
+                    .sendMessage(message: data, email: email);
                 controller.clear();
                 _controller.animateTo(
                   0,
