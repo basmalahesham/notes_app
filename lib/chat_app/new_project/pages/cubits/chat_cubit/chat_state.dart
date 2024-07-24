@@ -5,4 +5,8 @@ abstract class ChatState {}
 
 class ChatInitial extends ChatState {}
 
-class ChatSuccess extends ChatState {}
+class ChatSuccess extends ChatState {
+  List<Message> messagesList;
+
+  ChatSuccess({required this.messagesList});
+}
