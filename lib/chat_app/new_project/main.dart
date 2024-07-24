@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/chat_page.dart';
+import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/cubits/chat_cubit/chat_cubit.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/cubits/login_cubit/login_cubit.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/cubits/register_cubit/register_cubit.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/login_page.dart';
@@ -26,6 +27,7 @@ class ScholarChat extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => LoginCubit()),
         BlocProvider(create: (context) => RegisterCubit()),
+        BlocProvider(create: (context) => ChatCubit()),
       ],
       child: MaterialApp(
         routes: {
