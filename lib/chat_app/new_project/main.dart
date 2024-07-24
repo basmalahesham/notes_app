@@ -25,7 +25,7 @@ class ScholarChat extends StatelessWidget {
       create: (context) => LoginCubit(),
       child: MaterialApp(
         routes: {
-          LoginPage.id: (context) => const LoginPage(),
+          LoginPage.id: (context) => LoginPage(),
           RegisterPage.id: (context) => const RegisterPage(),
           ChatPage.id: (context) => ChatPage(),
         },
