@@ -10,7 +10,6 @@ class ChatPage extends StatelessWidget {
 
   static String id = "chatPage";
 
-  //FirebaseFirestore firestore = FirebaseFirestore.instance;
   CollectionReference messages =
       FirebaseFirestore.instance.collection(kMessagesCollection);
 
@@ -20,13 +19,11 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //String email = ModalRoute.of(context)!.settings.arguments as String;
     var email = ModalRoute.of(context)!.settings.arguments;
     return StreamBuilder<QuerySnapshot>(
       stream: messages.orderBy(kCreatedAt, descending: true).snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          //print(snapshot.data!.docs[0]['messages']);
           List<Message> messagesList = [];
           for (int i = 0; i < snapshot.data!.docs.length; i++) {
             messagesList.add(Message.fromJson(snapshot.data!.docs[i]));
@@ -75,13 +72,9 @@ class ChatPage extends StatelessWidget {
                       controller.clear();
                       _controller.animateTo(
                         0,
-                        //_controller.position.maxScrollExtent,
                         duration: const Duration(milliseconds: 500),
-                        //curve: Curves.fastOutSlowIn,
                         curve: Curves.easeIn,
                       );
-                      /*_controller.jumpTo(
-                          _controller.position.maxScrollExtent,);*/
                     },
                     decoration: InputDecoration(
                       hintText: 'Send Message',
@@ -107,63 +100,5 @@ class ChatPage extends StatelessWidget {
         }
       },
     );
-    /*FutureBuilder<DocumentSnapshot>(
-      future: messages.doc('0tkNpZA1QxaKQQgQ2zAE').get(),
-      builder: (context, snapshot) {
-        print(snapshot.data!['message']);
-        return Scaffold(
-          appBar: AppBar(
-            automaticallyImplyLeading: false,
-            backgroundColor: kPrimaryColor,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  kLogo,
-                  height: 50,
-                ),
-                Text('Scholar chat'),
-              ],
-            ),
-            centerTitle: true,
-          ),
-          body: Column(
-            children: [
-              Expanded(
-                child: ListView.builder(itemBuilder: (context, index) {
-                  return ChatBubble();
-                }),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: TextField(
-                  controller: controller,
-                  onSubmitted: (data) {
-                    messages.add({
-                      'message': data,
-                    });
-                    controller.clear();
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'Send Message',
-                    suffixIcon: Icon(
-                      Icons.send,
-                      color: kPrimaryColor,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-                      borderSide: BorderSide(color: kPrimaryColor),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );*/
   }
 }
