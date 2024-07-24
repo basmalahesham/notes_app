@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/chat_page.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/cubits/login_cubit/login_cubit.dart';
+import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/cubits/register_cubit/register_cubit.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/login_page.dart';
 import 'package:flutter_udemy_tharwat2/chat_app/new_project/pages/register_page.dart';
 
@@ -21,8 +22,11 @@ class ScholarChat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LoginCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => LoginCubit()),
+        BlocProvider(create: (context) => RegisterCubit()),
+      ],
       child: MaterialApp(
         routes: {
           LoginPage.id: (context) => LoginPage(),
