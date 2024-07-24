@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_udemy_tharwat2/chat_app/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_udemy_tharwat2/chat_app/models/message.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_udemy_tharwat2/chat_app/new_project/constants.dart';
+import 'package:flutter_udemy_tharwat2/chat_app/new_project/models/message.dart';
+
 import '../widgets(components)/chat_bubble.dart';
 
 class ChatPage extends StatelessWidget {
@@ -16,12 +17,13 @@ class ChatPage extends StatelessWidget {
   TextEditingController controller = TextEditingController();
 
   final ScrollController _controller = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     //String email = ModalRoute.of(context)!.settings.arguments as String;
     var email = ModalRoute.of(context)!.settings.arguments;
     return StreamBuilder<QuerySnapshot>(
-      stream: messages.orderBy(kCreatedAt,descending: true).snapshots(),
+      stream: messages.orderBy(kCreatedAt, descending: true).snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           //print(snapshot.data!.docs[0]['messages']);
@@ -49,13 +51,15 @@ class ChatPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: ListView.builder(
-                    reverse: true,
+                      reverse: true,
                       controller: _controller,
                       itemCount: messagesList.length,
                       itemBuilder: (context, index) {
-                        return messagesList[index].id == email ? ChatBubble(
-                          message: messagesList[index],
-                        ) : ChatBubbleForFriend(message: messagesList[index]);
+                        return messagesList[index].id == email
+                            ? ChatBubble(
+                                message: messagesList[index],
+                              )
+                            : ChatBubbleForFriend(message: messagesList[index]);
                       }),
                 ),
                 Padding(
@@ -66,7 +70,7 @@ class ChatPage extends StatelessWidget {
                       messages.add({
                         kMessage: data,
                         kCreatedAt: DateTime.now(),
-                        kId : email,
+                        kId: email,
                       });
                       controller.clear();
                       _controller.animateTo(

@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_udemy_tharwat2/chat_app/pages/register_page.dart';
-import 'package:flutter_udemy_tharwat2/chat_app/widgets(components)/custom_button.dart';
-import 'package:flutter_udemy_tharwat2/chat_app/widgets(components)/custom_text_form_field.dart';
+import 'package:flutter_udemy_tharwat2/chat_app/old_project/pages/register_page.dart';
+import 'package:flutter_udemy_tharwat2/chat_app/old_project/widgets(components)/custom_text_form_field.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../constants.dart';
 import '../helper/show_snach_bar.dart';
+import '../widgets(components)/custom_button.dart';
 import 'chat_page.dart';
 
 class LoginPage extends StatefulWidget {

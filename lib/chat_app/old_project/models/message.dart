@@ -1,4 +1,4 @@
-import 'package:flutter_udemy_tharwat2/chat_app/constants.dart';
+import 'package:flutter_udemy_tharwat2/chat_app/old_project/constants.dart';
 
 class Message{
   final String message;

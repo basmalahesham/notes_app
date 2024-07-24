@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_udemy_tharwat2/chat_app/models/message.dart';
+import 'package:flutter_udemy_tharwat2/chat_app/new_project/models/message.dart';
 
 import '../constants.dart';
 

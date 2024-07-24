@@ -1,29 +1,28 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_udemy_tharwat2/chat_app/pages/chat_page.dart';
+import 'package:flutter_udemy_tharwat2/chat_app/old_project/pages/register_page.dart';
+import 'package:flutter_udemy_tharwat2/chat_app/old_project/widgets(components)/custom_text_form_field.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../constants.dart';
 import '../helper/show_snach_bar.dart';
 import '../widgets(components)/custom_button.dart';
-import '../widgets(components)/custom_text_form_field.dart';
+import 'chat_page.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
-  static String id = "registerPage";
+  static String id = "loginPage";
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
-  String? email;
-
-  String? password;
-
+class _LoginPageState extends State<LoginPage> {
+  // String? email;
+  // String? password;
+  String? email, password;
   GlobalKey<FormState> formKey = GlobalKey();
-
   bool isLoading = false;
 
   @override
@@ -63,7 +62,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 const Row(
                   children: [
                     Text(
-                      'REGISTER',
+                      'LOGIN',
                       style: TextStyle(
                         fontSize: 24,
                         color: Colors.white,
@@ -106,15 +105,16 @@ class _RegisterPageState extends State<RegisterPage> {
                       isLoading = true;
                       setState(() {});
                       try {
-                        await registerUser();
-                        Navigator.pushNamed(context, ChatPage.id,arguments: email);
+                        await loginUser();
+                        Navigator.pushNamed(context, ChatPage.id,
+                            arguments: email);
                       } on FirebaseAuthException catch (ex) {
                         /*print(ex);
                         ScaffoldMessenger.of(context).showSnackBaSnackBar(content: Text(ex.toString(),),),);*/
-                        if (ex.code == 'weak-password') {
-                          showSnackBar(context, 'weak-password');
-                        } else if (ex.code == 'email-already-in-use') {
-                          showSnackBar(context, 'email already exists');
+                        if (ex.code == 'user-not-found') {
+                          showSnackBar(context, 'user not found');
+                        } else if (ex.code == 'wrong-password') {
+                          showSnackBar(context, 'wrong password');
                         }
                       } catch (ex) {
                         print(ex);
@@ -124,7 +124,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       setState(() {});
                     } else {}
                   },
-                  text: 'REGISTER',
+                  text: 'LOGIN',
                 ),
                 const SizedBox(
                   height: 10,
@@ -133,19 +133,17 @@ class _RegisterPageState extends State<RegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'already have an account?',
+                      'dont\'t have an account?',
                       style: TextStyle(
                         color: Colors.white,
                       ),
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pop(
-                          context,
-                        );
+                        Navigator.pushNamed(context, RegisterPage.id);
                       },
                       child: const Text(
-                        '  Login',
+                        '  Register',
                         style: TextStyle(
                           color: Color(0xffC7EDE6),
                         ),
@@ -161,8 +159,8 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  Future<void> registerUser() async {
+  Future<void> loginUser() async {
     UserCredential user = await FirebaseAuth.instance
-        .createUserWithEmailAndPassword(email: email!, password: password!);
+        .signInWithEmailAndPassword(email: email!, password: password!);
   }
 }
