@@ -1,4 +1,4 @@
-part of 'login_cubit.dart';
+/*part of 'login_cubit.dart';
 
 @immutable
 abstract class LoginState {}
@@ -13,4 +13,4 @@ class LoginFailure extends LoginState {
   String errMessage;
 
   LoginFailure({required this.errMessage});
-}
+}*/

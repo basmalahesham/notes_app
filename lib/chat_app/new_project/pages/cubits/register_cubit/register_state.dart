@@ -1,3 +1,4 @@
+/*
 part of 'register_cubit.dart';
 
 @immutable
@@ -14,3 +15,4 @@ class RegisterFailure extends RegisterState {
 
   RegisterFailure({required this.errMessage});
 }
+*/
