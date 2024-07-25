@@ -3,6 +3,16 @@ part of 'auth_bloc.dart';
 @immutable
 abstract class AuthEvent {}
 
-class LoginEvent extends AuthEvent {}
+class LoginEvent extends AuthEvent {
+  final String email;
+  final String password;
 
-class RegisterEvent extends AuthEvent {}
+  LoginEvent({required this.email, required this.password});
+}
+
+class RegisterEvent extends AuthEvent {
+  final String email;
+  final String password;
+
+  RegisterEvent({required this.email, required this.password});
+}
